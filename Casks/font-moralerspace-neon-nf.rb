@@ -8,8 +8,7 @@ cask "font-moralerspace-neon-nf" do
     homepage "https://github.com/yuru7/moralerspace"
 
     livecheck do
-        url "https://github.com/yuru7/moralerspace/releases/download/"
-        regex(/^(\d+(?:\.\d+)+)$/i)
+        url "https://github.com/yuru7/moralerspace.git"
     end
   
     font "MoralerspaceNF_v#{version}/MoralerspaceNeonNF-Bold.ttf"
