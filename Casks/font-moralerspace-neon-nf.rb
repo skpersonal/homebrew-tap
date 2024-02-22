@@ -6,8 +6,8 @@ cask "font-moralerspace-neon-nf" do
     name "Moralerspace Neon NF"
     homepage "https://github.com/yuru7/moralerspace"
   
-    font "MoralerspaceNeonNF-Bold.otf"
-    font "MoralerspaceNeonNF-BoldItalic.otf"
-    font "MoralerspaceNeonNF-Italic.otf"
-    font "MoralerspaceNeonNF-Regular.otf"
+    font "MoralerspaceNeonNF-Bold.ttf"
+    font "MoralerspaceNeonNF-BoldItalic.ttf"
+    font "MoralerspaceNeonNF-Italic.ttf"
+    font "MoralerspaceNeonNF-Regular.ttf"
   end
