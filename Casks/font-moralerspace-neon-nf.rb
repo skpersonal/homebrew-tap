@@ -6,14 +6,14 @@ cask "font-moralerspace-neon-nf" do
     name "Moralerspace Neon NF"
     desc "Moralerspace is a programming font that combines Monaspace and IBM Plex Sans JP"
     homepage "https://github.com/yuru7/moralerspace"
+
+    livecheck do
+        url "https://github.com/yuru7/moralerspace.git"
+        regex(/^(\d+(?:\.\d+)+)$/i)
+    end
   
     font "MoralerspaceNF_v#{version}/MoralerspaceNeonNF-Bold.ttf"
     font "MoralerspaceNF_v#{version}/MoralerspaceNeonNF-BoldItalic.ttf"
     font "MoralerspaceNF_v#{version}/MoralerspaceNeonNF-Italic.ttf"
     font "MoralerspaceNF_v#{version}/MoralerspaceNeonNF-Regular.ttf"
-end
-
-livecheck do
-    url "https://github.com/yuru7/moralerspace.git"
-    regex(/^(\d+(?:\.\d+)+)$/i)
 end
