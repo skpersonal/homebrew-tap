@@ -1,5 +1,5 @@
 cask "font-moralerspace-neon-nf" do
-    version "0.0.8"
+    version :latest
     sha256 :no_check
   
     url "https://github.com/yuru7/moralerspace/releases/download/v#{version}/MoralerspaceNF_v#{version}.zip"
@@ -11,4 +11,9 @@ cask "font-moralerspace-neon-nf" do
     font "MoralerspaceNF_v#{version}/MoralerspaceNeonNF-BoldItalic.ttf"
     font "MoralerspaceNF_v#{version}/MoralerspaceNeonNF-Italic.ttf"
     font "MoralerspaceNF_v#{version}/MoralerspaceNeonNF-Regular.ttf"
+end
+
+livecheck do
+    url "https://github.com/yuru7/moralerspace.git"
+    regex(/^(\d+(?:\.\d+)+)$/i)
 end
