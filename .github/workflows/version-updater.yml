@@ -1,28 +1,11 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Node.js CI
+name: Version Updater
 
 on:
   workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'
-        required: true
-        default: 'warning'
-        type: choice
-        options:
-        - info
-        - warning
-        - debug
-      tags:
-        description: 'Version update'
-        required: false
-        type: boolean
-      environment:
-        description: 'Environment to run version update script'
-        type: environment
-        required: true
+    
   schedule:
     - cron: "0, 0, *, *, *"
 
