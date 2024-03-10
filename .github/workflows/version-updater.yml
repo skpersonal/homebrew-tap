@@ -29,8 +29,9 @@ jobs:
     - run: npm ci
     - run: node Scripts/update_version.js
     - name: Commit change
-    - env:
+      env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - run: git add Casks/
-    - run: git commit -m "Version update by Actions"
-    - run: git push origin HEAD
+      run: |
+        git add Casks/
+        git commit -m "Version update by Actions"
+        git push origin HEAD
