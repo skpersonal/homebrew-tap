@@ -1,0 +1,8 @@
+{
+  "casks": [
+    {
+      "name": "yuru7/moralerspace",
+      "cask_name": "font-moralerspace-neon-nf"
+    }
+  ]
+}
