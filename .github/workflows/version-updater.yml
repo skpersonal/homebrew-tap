@@ -30,7 +30,7 @@ jobs:
     - run: node Scripts/update_version.js
     - name: Check diff
       run: |
-        git add Casks/
+        git add -N Casks/
         git diff --name-only --exit-code
       continue-on-error: true
     - name: Commit change
@@ -41,3 +41,4 @@ jobs:
         git config --global user.name "github-actions[bot]"
         git commit -m "Version update by Actions"
         git push origin HEAD
+      if: steps.diff.outcome == 'failure'
