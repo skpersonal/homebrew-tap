@@ -19,7 +19,7 @@ const main = () => {
   ).casks;
 
   for (const cask of casks) {
-    const name = cask.name;
+    const repo = cask.repo;
     const caskName = cask.cask_name;
 
     if (!fs.existsSync(templatePath(caskName))) {
@@ -27,7 +27,7 @@ const main = () => {
       continue;
     }
 
-    const url = githubApi(name);
+    const url = githubApi(repo);
 
     axios
       .get(url)
