@@ -29,6 +29,7 @@ jobs:
     - run: npm ci
     - run: node Scripts/update_version.js
     - name: Check diff
+      id: diff
       run: |
         git add -N Casks/
         git diff --name-only --exit-code
