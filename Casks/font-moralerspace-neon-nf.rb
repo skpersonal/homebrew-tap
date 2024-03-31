@@ -1,5 +1,5 @@
 cask "font-moralerspace-neon-nf" do
-    version "v0.0.11"
+    version "v1.0.0"
     sha256 :no_check
   
     url "https://github.com/yuru7/moralerspace/releases/download/#{version}/MoralerspaceNF_#{version}.zip"
