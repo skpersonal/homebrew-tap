@@ -92,7 +92,7 @@ function downloadFile(url, filePath, maxRedirects = 3) {
 }
 
 async function calculateSHA256(filePath) {
-  const fileBuffer = await fsp.readFile(filePath, "utf-8");
+  const fileBuffer = await fsp.readFile(filePath);
   const hashSum = crypto.createHash("sha256");
   hashSum.update(fileBuffer);
   return hashSum.digest("hex");
