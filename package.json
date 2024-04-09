@@ -2,7 +2,7 @@
   "name": "homebrew-tap",
   "version": "1.0.0",
   "description": "",
-  "main": "Scripts/update_version.js",
+  "main": "Scripts/update_version_v2.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,8 +17,6 @@
   },
   "homepage": "https://github.com/skpersonal/homebrew-tap#readme",
   "dependencies": {
-    "axios": "^1.6.7",
-    "checksum": "^1.0.0",
-    "nodejs-file-downloader": "^4.12.1"
+    "log4js": "^6.9.1"
   }
 }

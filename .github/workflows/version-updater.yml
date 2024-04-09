@@ -26,7 +26,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       - run: npm ci
-      - run: node Scripts/update_version.js
+      - run: node Scripts/update_version_v2.js
       - name: Check diff
         id: diff
         run: |
