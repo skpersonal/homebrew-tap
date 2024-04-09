@@ -7,6 +7,10 @@
     {
       "repo": "yuru7/moralerspace",
       "cask_name": "font-moralerspace-xenon-nf"
+    },
+    {
+      "repo": "adobe-fonts/source-han-code-jp",
+      "cask_name": "font-source-han-code-jp"
     }
   ]
 }
