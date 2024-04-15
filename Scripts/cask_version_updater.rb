@@ -8,6 +8,12 @@ require 'digest'
 $logger = Logger.new($stdout)
 $logger.level = Logger::INFO
 
+# Downloads a file from the given URI with support for redirection.
+#
+# @param uri [URI] The URI of the file to download.
+# @param file_path [String] The local file path to save the downloaded file.
+# @return [void]
+# @raise [RuntimeError] If the HTTP request fails.
 def download_with_redirect(uri, file_path)
   Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
     request = Net::HTTP::Get.new(uri)
@@ -23,7 +29,7 @@ def download_with_redirect(uri, file_path)
       when Net::HTTPRedirection
         location = response['location']
         $logger.debug "Redirected to #{location}"
-        download_with_redirect(URI(location), file_path) # 再帰的にリダイレクトを追跡
+        download_with_redirect(URI(location), file_path)
       else
         raise "HTTP request failed: #{response.code} #{response.message}"
       end
@@ -31,6 +37,10 @@ def download_with_redirect(uri, file_path)
   end
 end
 
+# Calculates the SHA256 hash of a file.
+#
+# @param file_path [String] The path to the file.
+# @return [String] The SHA256 hash of the file.
 def calculate_sha256(file_path)
   return "File does not exist: #{file_path}" unless File.exist?(file_path)
 
@@ -44,6 +54,10 @@ def calculate_sha256(file_path)
   sha256.hexdigest
 end
 
+# Updates the cask file with the latest version and SHA256 checksum.
+#
+# @param file_path [String] The path to the cask file.
+# @return [void]
 def update_cask(file_path)
   content = File.read(file_path)
   cask_match = content.match(/cask ['"]([^'"]+)['"]/)
@@ -96,6 +110,13 @@ def update_cask(file_path)
   $logger.info('####################')
 end
 
+# Interpolates the given pattern with the provided version.
+# It replaces all occurrences of `#{expression}` in the pattern with the evaluated result of the expression.
+# If an error occurs during evaluation, it logs the error message and returns the original match.
+#
+# @param pattern [String] The pattern to interpolate.
+# @param version [String] The version to use for interpolation.
+# @return [String] The interpolated URL pattern.
 def interpolate_url(pattern, version)
   pattern.gsub(/\#\{([^}]+)\}/) do |match|
     eval(Regexp.last_match(1), binding)
@@ -105,6 +126,10 @@ def interpolate_url(pattern, version)
   end
 end
 
+# Processes a directory by iterating over all files in the directory and updating the cask for each file.
+#
+# @param dir_path [String] The path to the directory to be processed.
+# @return [void]
 def process_directory(dir_path)
   return $logger.error "Directory does not exist: #{dir_path}" unless Dir.exist?(dir_path)
 
