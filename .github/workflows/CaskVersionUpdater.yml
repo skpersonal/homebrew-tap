@@ -25,7 +25,7 @@ jobs:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Run updater
-        run: ruby Scripts/CaskVersionUpdater.rb
+        run: ruby Scripts/cask_version_updater.rb
       - name: Check diff
         id: diff
         run: |
