@@ -74,7 +74,10 @@ def update_cask(file_path)
     $logger.info("SHA256: #{current_sha256}")
     $logger.info("URL: #{interpolated_url}")
     match = interpolated_url.match(%r{https://github\.com/([^/]+/[^/]+)})
-    raise 'GitHub repository pattern not found in the URL.' unless match
+    if !match
+      $logger.info('GitHub repository pattern not found in the URL.')
+      return
+    end
 
     repo_part = match[1]
     $logger.debug(repo_part)
@@ -107,7 +110,6 @@ def update_cask(file_path)
   else
     $logger.info "Failed to extract necessary information from #{file_path}"
   end
-  $logger.info('####################')
 end
 
 # Interpolates the given pattern with the provided version.
@@ -137,6 +139,7 @@ def process_directory(dir_path)
     next if File.directory?(file_path)
 
     update_cask(file_path)
+    $logger.info('####################')
   end
 end
 
