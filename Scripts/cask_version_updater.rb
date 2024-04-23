@@ -21,7 +21,7 @@ def download_with_redirect(uri, file_path)
     http.request(request) do |response|
       case response
       when Net::HTTPSuccess
-        open(file_path, 'wb') do |file|
+        File.open(file_path, 'wb') do |file|
           response.read_body do |chunk|
             file.write(chunk)
           end
@@ -74,7 +74,7 @@ def update_cask(file_path)
     $logger.info("SHA256: #{current_sha256}")
     $logger.info("URL: #{interpolated_url}")
     match = interpolated_url.match(%r{https://github\.com/([^/]+/[^/]+)})
-    if !match
+    unless match
       $logger.info('GitHub repository pattern not found in the URL.')
       return
     end
