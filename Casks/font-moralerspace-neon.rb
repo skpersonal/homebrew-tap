@@ -1,6 +1,6 @@
 cask 'font-moralerspace-neon' do
-  version 'v1.0.1'
-  sha256 '77568a436c0664ba37c5f94dcb379dce0693da2ca65b1ba7d12d049f3f1c9c80'
+  version 'v1.0.2'
+  sha256 'edafef240510a47f8fd34bfcb78fb05badf795cd0cef03766c9e58c3faf6ef83'
 
   url "https://github.com/yuru7/moralerspace/releases/download/#{version}/Moralerspace_#{version}.zip"
   name 'Moralerspace Neon'
